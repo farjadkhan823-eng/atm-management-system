@@ -1,0 +1,37 @@
+.app-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--bg-main);
+}
+
+/* Sidebar Fix width */
+.layout-sidebar {
+    flex-shrink: 0;
+    height: 100vh;
+    z-index: 10;
+}
+
+/* Right Side Wrapper (Header + Content) */
+.layout-main-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header fixed height at top */
+.layout-header {
+    flex-shrink: 0;
+    z-index: 5;
+}
+
+.layout-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: var(--bg-main);
+    transition: background-color 0.3s ease;
+}

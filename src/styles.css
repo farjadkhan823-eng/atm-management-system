@@ -1,1 +1,156 @@
-/* You can add global styles to this file, and also import other style files */
+/* 1. Light Theme (Default Variables) */
+:root {
+    /* Color Palette - Primary & Accent */
+    --primary-color: #2563eb;
+    /* Modern Blue */
+    --primary-hover: #1d4ed8;
+    --accent-color: #10b981;
+    /* Green (Deposit / Success) */
+    --danger-color: #ef4444;
+    /* Red (Withdraw / Delete) */
+    --warning-color: #f59e0b;
+    /* Yellow / Alert */
+
+    /* Neutral Colors (Backgrounds & Cards) */
+    --bg-main: #f8fafc;
+    /* Soft Light Background */
+    --bg-card: #ffffff;
+    /* Clean White Card */
+    --bg-card-hover: #f1f5f9;
+    --border-color: #e2e8f0;
+
+    /* Typography Colors */
+    --text-primary: #0f172a;
+    /* Deep Dark Gray/Black */
+    --text-secondary: #64748b;
+    /* Soft Gray */
+    --text-muted: #94a3b8;
+
+    /* UI Shadows & Soft Borders */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Layout & Utility Variables */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 2. Dark Theme Overrides */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --primary-hover: #60a5fa;
+    --accent-color: #34d399;
+    --danger-color: #f87171;
+    --warning-color: #fbbf24;
+
+    --bg-main: #0f172a;
+    /* Deep Navy/Dark Slate */
+    --bg-card: #1e293b;
+    /* Darker Slate Card */
+    --bg-card-hover: #334155;
+    --border-color: #334155;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Base Reset & Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* 4. Global Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Smooth Page Load Animation */
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* 5. Generic Utility UI Classes */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}

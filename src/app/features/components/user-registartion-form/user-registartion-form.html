@@ -1,0 +1,11 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Name">
+    <input type="email" formControlName="email" placeholder="Email">
+
+    <select formControlName="role">
+        <option value="AREA_ADMIN">AREA_ADMIN</option>
+        <option value="SUPER_ADMIN">SUPER_ADMIN</option>
+    </select>
+
+    <button type="sumbit" [disabled]="userForm.invalid">Add User</button>
+</form>

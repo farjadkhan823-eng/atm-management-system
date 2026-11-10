@@ -1,0 +1,85 @@
+.atm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+    user-select: none;
+}
+
+/* Left Section */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.page-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.welcome-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.account-holder {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    animation: pulseGlow 2s infinite;
+}
+
+/* Icon Buttons (Notifications etc.) */
+.icon-btn {
+    background-color: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.icon-btn:hover {
+    background-color: var(--bg-card-hover);
+    color: var(--text-primary);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
