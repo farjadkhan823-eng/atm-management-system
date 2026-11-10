@@ -38,6 +38,20 @@ export class AdminService {
     this.saveToStorage(updated);
   }
 
+  updateAdminAccess(adminId: string, newAtmIds: string[]) {
+    const currentAdmins = this.adminsData();
+
+    const updated = currentAdmins.map(admin => {
+      if (admin.id === adminId) {
+        return { ...admin, assignedAtmIds: newAtmIds };
+      }
+      return admin;
+    });
+
+    this.adminsData.set(updated);
+    this.saveToStorage(updated);
+  }
+
   delete(id: string) {
     const currentList = this.adminsData();
     const updated = currentList.filter(admin => admin.id !== id);
