@@ -1,3 +1,4 @@
+/* Main sidebar wrapper container */
 .atm-sidebar {
     width: 260px;
     height: 100vh;
@@ -11,7 +12,7 @@
     user-select: none;
 }
 
-/* Header & Logo */
+/* Header & Brand Logo Section */
 .sidebar-header {
     display: flex;
     align-items: center;
@@ -39,7 +40,7 @@
     letter-spacing: -0.5px;
 }
 
-/* Navigation Links */
+/* Navigation Links Container */
 .sidebar-nav {
     display: flex;
     flex-direction: column;
@@ -47,13 +48,22 @@
     flex-grow: 1;
 }
 
+/* Individual Navigation Button Items */
 .nav-item {
     display: flex;
     align-items: center;
     gap: 0.85rem;
     padding: 0.75rem 1rem;
     color: var(--text-secondary);
-    text-decoration: none;
+
+    /* Button default styling resets taake native look khatam ho jaye */
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-main);
+
     font-weight: 500;
     font-size: 0.95rem;
     border-radius: var(--radius-sm);
@@ -63,8 +73,10 @@
 .nav-item svg {
     color: var(--text-muted);
     transition: var(--transition-fast);
+    flex-shrink: 0;
 }
 
+/* Hover Effect */
 .nav-item:hover {
     background-color: var(--bg-card-hover);
     color: var(--text-primary);
@@ -75,7 +87,7 @@
     color: var(--primary-color);
 }
 
-/* Active State */
+/* Active State (Triggered automatically by routerLinkActive) */
 .nav-item.active {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -86,7 +98,7 @@
     color: #ffffff;
 }
 
-/* Footer / Logout */
+/* Footer / Logout Button Section */
 .sidebar-footer {
     border-top: 1px solid var(--border-color);
     padding-top: 1rem;

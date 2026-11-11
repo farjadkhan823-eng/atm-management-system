@@ -1,1 +1,40 @@
-<p>user-registartion-table works!</p>
+ <div class="table-container animate-fade-in">
+    <div class="table-header-wrapper">
+        <h3 class="table-title">Admins Management</h3>
+        <p class="table-subtitle">List of all registered administrators and their assigned ATMs</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="atm-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Assigned ATMs</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (admin of admins(); track admin.id){
+                <tr>
+                    <td class="fw-medium">#{{admin.id}}</td>
+                    <td>{{admin.name}}</td>
+                    <td class="text-muted">{{admin.email}}</td>
+                    <td>
+                        <span class="badge-role">{{admin.role}}</span>
+                    </td>
+                    <td>{{admin.assignedAtmIds}}</td>
+                    <td>
+                        <button class="btn-delete" (click)="deleteAdmin(admin.id)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
