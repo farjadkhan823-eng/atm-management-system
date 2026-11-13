@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { User } from '../../../shared/models/user.model';
+import { ATM } from '../../../shared/models/atm.model';
 import { AdminService } from '../../../core/services/admin.service';
+import { AtmService } from '../../../core/services/atm.service';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,10 +11,17 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './user-registartion-form.html',
   styleUrl: './user-registartion-form.css',
 })
-export class UserRegistartionForm {
+export class UserRegistartionForm implements OnInit {
 
   private fb = inject(FormBuilder);
   private adminService = inject(AdminService);
+  private atmService = inject(AtmService);
+
+  availableAtms = signal<ATM[]>([]);
+
+  ngOnInit(): void {
+    this.availableAtms.set(this.atmService.atmData());
+  }
 
   userForm = this.fb.group({
     name: ['', [Validators.required]],
@@ -34,7 +43,7 @@ export class UserRegistartionForm {
       name: value.name!,
       email: value.email!,
       role: value.role!,
-      assignedAtmIds: [],
+      assignedAtmIds: value.assignAtmIds!,
     }
 
     this.adminService.addAdmin(newUser);

@@ -1,1 +1,55 @@
-<p>atm-registration-table works!</p>
+<!-- Table Card Container -->
+<div class="table-container animate-fade-in">
+    <div class="table-header-wrapper">
+        <h3 class="table-title">ATMs Management List</h3>
+        <p class="table-subtitle">Overview of all registered ATM machines and their operational status</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="atm-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ATM Name</th>
+                    <th>Code</th>
+                    <th>Area</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (atm of atms(); track atm.id){
+                <tr>
+                    <td class="fw-medium">#{{atm.id}}</td>
+                    <td>{{atm.atmName}}</td>
+                    <td><span class="code-badge">{{atm.code}}</span></td>
+                    <td>{{atm.area}}</td>
+                    <td class="text-muted" title="{{atm.address}}">{{atm.address}}</td>
+
+                    <!-- Simple Status Badge (No Dropdown) -->
+                    <td>
+                        <span class="status-badge">
+                            {{atm.status}}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="btn-delete" (click)="deleteAtm(atm.id)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="7" class="empty-row-cell">
+                        <p class="empty-message">No ATMs found.</p>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

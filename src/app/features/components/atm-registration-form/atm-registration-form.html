@@ -1,1 +1,63 @@
-<p>atm-registration-form works!</p>
+<!-- ATM Form Card Container -->
+<div class="form-container animate-fade-in">
+    <div class="form-header-wrapper">
+        <h3 class="form-title">ATM Registration</h3>
+        <p class="form-subtitle">Add a new ATM machine</p>
+    </div>
+
+    <form [formGroup]="atmForm" (ngSubmit)="onSubmit()" class="atm-form">
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="atmName">ATM Name</label>
+                <input id="atmName" type="text" formControlName="atmName" placeholder="e.g. UBL Branch-1 ATM"
+                    class="form-control">
+            </div>
+
+
+            <div class="form-group">
+                <label for="code">ATM Code</label>
+                <input id="code" type="text" formControlName="code" placeholder="e.g. ATM-KHI-001" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="area">Area / City</label>
+                <input id="area" type="text" formControlName="area" placeholder="e.g. Clifton, Karachi"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="status">ATM Status</label>
+                <div class="select-wrapper">
+                    <select id="status" formControlName="status" class="form-control">
+                        <option value="" disabled selected>Select current status</option>
+                        <option value="ACTIVE">ACTIVE</option>
+                        <option value="INACTIVE">INACTIVE</option>
+                        <option value="OUT OF CASH">OUT OF CASH</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Complete Address</label>
+            <textarea id="address" formControlName="address"
+                placeholder="Enter complete physical address of the ATM location" class="form-control textarea-control"
+                rows="3"></textarea>
+        </div>
+
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="atmForm.invalid" class="btn-submit">
+                Register ATM
+            </button>
+        </div>
+
+    </form>
+</div>

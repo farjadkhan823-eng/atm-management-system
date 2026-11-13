@@ -1,4 +1,4 @@
- <div class="table-container animate-fade-in">
+<div class="table-container animate-fade-in">
     <div class="table-header-wrapper">
         <h3 class="table-title">Admins Management</h3>
         <p class="table-subtitle">List of all registered administrators and their assigned ATMs</p>
@@ -31,6 +31,13 @@
                         <button class="btn-delete" (click)="deleteAdmin(admin.id)">
                             Delete
                         </button>
+                    </td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="7" class="empty-row-cell">
+                        <p class="empty-message">No Users found.</p>
                     </td>
                 </tr>
                 }

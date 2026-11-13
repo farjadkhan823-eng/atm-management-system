@@ -1,70 +1,90 @@
-/* 1. Light Theme (Default Variables) */
+/* 
+   1. LIGHT THEME (DEFAULT VARIABLES)
+   Premium ATM / Banking Skeuomorphic Theme*/
+
 :root {
-    /* Color Palette - Primary & Accent */
-    --primary-color: #2563eb;
-    /* Modern Blue */
-    --primary-hover: #1d4ed8;
-    --accent-color: #10b981;
-    /* Green (Deposit / Success) */
-    --danger-color: #ef4444;
-    /* Red (Withdraw / Delete) */
-    --warning-color: #f59e0b;
-    /* Yellow / Alert */
+    /* Primary & Accent Colors */
+    --primary-color: #174ea6;
+    --primary-hover: #103d85;
+    --accent-color: #059669;
+    --danger-color: #dc3545;
+    --warning-color: #d99518;
 
-    /* Neutral Colors (Backgrounds & Cards) */
-    --bg-main: #f8fafc;
-    /* Soft Light Background */
-    --bg-card: #ffffff;
-    /* Clean White Card */
-    --bg-card-hover: #f1f5f9;
-    --border-color: #e2e8f0;
+    /* Backgrounds & Cards */
+    --bg-main: #e9eef5;
+    --bg-card: #f8fafc;
+    --bg-card-hover: #edf2f8;
+    --border-color: #cbd5e1;
 
-    /* Typography Colors */
-    --text-primary: #0f172a;
-    /* Deep Dark Gray/Black */
-    --text-secondary: #64748b;
-    /* Soft Gray */
-    --text-muted: #94a3b8;
+    /* Typography */
+    --text-primary: #172b4d;
+    --text-secondary: #52657e;
+    --text-muted: #8493a7;
 
-    /* UI Shadows & Soft Borders */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* Skeuomorphic Shadows */
+    --shadow-sm:
+        2px 2px 5px rgba(45, 65, 90, 0.10),
+        -2px -2px 5px rgba(255, 255, 255, 0.85);
 
-    /* Layout & Utility Variables */
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
+    --shadow-md:
+        5px 5px 12px rgba(45, 65, 90, 0.13),
+        -5px -5px 12px rgba(255, 255, 255, 0.85);
+
+    --shadow-lg:
+        10px 10px 24px rgba(45, 65, 90, 0.17),
+        -10px -10px 24px rgba(255, 255, 255, 0.9);
+
+    /* Layout & Utilities */
+    --radius-sm: 7px;
+    --radius-md: 13px;
+    --radius-lg: 20px;
+
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    --font-main: 'Inter', system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* 2. Dark Theme Overrides */
+
+/* =========================================================
+   2. DARK THEME OVERRIDES
+========================================================= */
+
 [data-theme="dark"] {
-    --primary-color: #3b82f6;
-    --primary-hover: #60a5fa;
+    --primary-color: #4d91f7;
+    --primary-hover: #75aaff;
     --accent-color: #34d399;
-    --danger-color: #f87171;
+    --danger-color: #fb7185;
     --warning-color: #fbbf24;
 
-    --bg-main: #0f172a;
-    /* Deep Navy/Dark Slate */
-    --bg-card: #1e293b;
-    /* Darker Slate Card */
-    --bg-card-hover: #334155;
-    --border-color: #334155;
+    --bg-main: #111c2e;
+    --bg-card: #1c2b40;
+    --bg-card-hover: #263a53;
+    --border-color: #30445d;
 
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-primary: #edf4ff;
+    --text-secondary: #a9bad0;
+    --text-muted: #71859f;
 
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5);
+    --shadow-sm:
+        2px 2px 5px rgba(0, 0, 0, 0.35),
+        -2px -2px 5px rgba(255, 255, 255, 0.025);
+
+    --shadow-md:
+        5px 5px 12px rgba(0, 0, 0, 0.38),
+        -5px -5px 12px rgba(255, 255, 255, 0.025);
+
+    --shadow-lg:
+        10px 10px 24px rgba(0, 0, 0, 0.45),
+        -10px -10px 24px rgba(255, 255, 255, 0.025);
 }
 
-/* 3. Base Reset & Global Styles */
+
+/* =========================================================
+   3. BASE RESET & GLOBAL STYLES
+========================================================= */
+
 *,
 *::before,
 *::after {
@@ -75,15 +95,36 @@
 
 body {
     font-family: var(--font-main);
-    background-color: var(--bg-main);
+    background:
+        radial-gradient(circle at 15% 10%,
+            rgba(255, 255, 255, 0.75),
+            transparent 35%),
+        var(--bg-main);
+
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
 }
 
-/* 4. Global Animations */
+[data-theme="dark"] body {
+    background:
+        radial-gradient(circle at 15% 10%,
+            rgba(64, 105, 160, 0.12),
+            transparent 40%),
+        var(--bg-main);
+}
+
+
+/* =========================================================
+   4. GLOBAL ANIMATIONS
+========================================================= */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -109,22 +150,39 @@ body {
 }
 
 /* Smooth Page Load Animation */
+
 .animate-fade-in {
     animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* 5. Generic Utility UI Classes */
+
+/* =========================================================
+   5. GENERIC UTILITY UI CLASSES
+========================================================= */
+
 .card {
-    background-color: var(--bg-card);
+    background: linear-gradient(145deg,
+            var(--bg-card),
+            var(--bg-card-hover));
+
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+
+    box-shadow:
+        var(--shadow-md),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.65),
+        inset -1px -1px 2px rgba(100, 116, 139, 0.06);
+
     padding: 1.5rem;
     transition: var(--transition-normal);
 }
 
 .card:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow:
+        var(--shadow-lg),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+
+    transform: translateY(-2px);
 }
 
 .btn {
@@ -132,25 +190,66 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+
     padding: 0.625rem 1.25rem;
-    font-weight: 500;
+
+    font-weight: 600;
     font-size: 0.95rem;
+
     border-radius: var(--radius-sm);
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
     cursor: pointer;
     transition: var(--transition-fast);
+
+    box-shadow:
+        3px 3px 7px rgba(0, 0, 0, 0.15),
+        -2px -2px 5px rgba(255, 255, 255, 0.2);
+
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background: linear-gradient(145deg,
+            #2563eb,
+            #17469c);
+
     color: #ffffff;
+    border-color: #174ea6;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
+    background: linear-gradient(145deg,
+            #1d4ed8,
+            #103d85);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        4px 5px 10px rgba(23, 78, 166, 0.3),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.2);
 }
 
 .btn:active {
-    transform: translateY(0);
+    transform: translateY(1px);
+
+    box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/*SIMPLE EMPTY STATE STYLING*/
+
+.empty-row-cell {
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+    background-color: var(--bg-card);
+}
+
+.empty-message {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 500;
 }
